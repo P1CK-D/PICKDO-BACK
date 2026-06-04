@@ -1,4 +1,4 @@
-package com.pickdo.backend.security;
+package com.pickdo.backend.Oauth.security;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

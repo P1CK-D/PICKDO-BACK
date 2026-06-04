@@ -1,4 +1,4 @@
-package com.pickdo.backend.security;
+package com.pickdo.backend.Oauth.security;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
