@@ -1,20 +1,19 @@
 ---
-
 name: Issue
 about: 작업을 위한 이슈를 생성합니다.
 title: "[TYPE] "
 labels: ""
 assignees: ""
--------------
+---
 
 ## 이슈 유형
 
-* [ ] Feature
-* [ ] Bug
-* [ ] Refactor
-* [ ] Docs
-* [ ] Test
-* [ ] Chore
+- [ ] Feature
+- [ ] Bug
+- [ ] Refactor
+- [ ] Docs
+- [ ] Test
+- [ ] Chore
 
 ## 작업 설명
 
@@ -22,9 +21,9 @@ assignees: ""
 
 ## 상세 작업 내용
 
-* [ ]
-* [ ]
-* [ ]
+- [ ]
+- [ ]
+- [ ]
 
 ## 참고 사항
 
