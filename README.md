@@ -1,7 +1,5 @@
 # PickDo Backend
 
-Spring Boot와 PostgreSQL 기반 PickDo 백엔드입니다.
-
 ## Team
 
 백엔드 리더: 강준석
@@ -16,35 +14,15 @@ Spring Boot와 PostgreSQL 기반 PickDo 백엔드입니다.
 - `release`: 다음 출시 버전을 준비하는 브랜치
 - `hotfix`: 출시된 제품의 버그를 고치기 위한 브랜치
 
-## Requirements
+## Commit
 
-- Java 17
-- Docker Desktop
+- `feat`: 새로운 기능 추가
+- `fix`: 버그 수정
+- `docs`: 문서 수정 (README, 주석 등)
+- `style`: 코드 포맷팅, 세미콜론 누락 등 (코드 자체의 변경이 없는 경우)
+- `refactor`: 코드 리팩토링 (기능 변경 없이 가독성이나 성능을 개선한 경우)
+- `test`: 테스트 코드 추가 및 수정
+- `chore`: 빌드 업무 수정, 패키지 매니저 설정, 프로젝트 환경 설정 등
+- `rename`: 파일 혹은 폴더명을 수정하거나 이동하는 경우
+- `remove`: 파일을 삭제하는 경우
 
-Homebrew로 설치한 Java 17은 이 프로젝트의 Gradle 설정에서 자동으로 사용합니다.
-
-## Run PostgreSQL
-
-```bash
-cp .env.example .env
-docker compose up -d
-```
-
-## Run Backend
-
-```bash
-./gradlew bootRun
-```
-
-## Check
-
-```bash
-curl http://localhost:8080/api/health
-curl http://localhost:8080/actuator/health
-```
-
-## Test
-
-```bash
-./gradlew test
-```
