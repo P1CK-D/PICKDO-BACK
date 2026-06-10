@@ -26,6 +26,6 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 
         String token = jwtUtil.generateToken(email);
 
-        response.sendRedirect("pickdofev1://login?token=" + token);
+        response.sendRedirect("exp://10.129.57.186:8081/--/main?token=" + token);
     }
 }
