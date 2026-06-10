@@ -26,7 +26,6 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 
         String token = jwtUtil.generateToken(email);
 
-        // 프론트로 토큰 전달 (프론트 주소 맞춰서 수정 필요)
-        response.sendRedirect("http://localhost:3000?token=" + token);
+        response.sendRedirect("pickdofev1://login?token=" + token);
     }
 }
