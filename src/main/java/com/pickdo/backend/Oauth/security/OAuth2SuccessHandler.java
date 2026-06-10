@@ -1,4 +1,4 @@
-package com.pickdo.backend.security;
+package com.pickdo.backend.Oauth.security;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -26,7 +26,6 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 
         String token = jwtUtil.generateToken(email);
 
-        // 프론트로 토큰 전달 (프론트 주소 맞춰서 수정 필요)
-        response.sendRedirect("http://localhost:3000?token=" + token);
+        response.sendRedirect("exp://10.129.57.186:8081/--/main?token=" + token);
     }
 }

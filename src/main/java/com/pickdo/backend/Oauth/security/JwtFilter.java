@@ -1,6 +1,6 @@
-package com.pickdo.backend.security;
+package com.pickdo.backend.Oauth.security;
 
-import com.pickdo.backend.repository.UserRepository;
+import com.pickdo.backend.Oauth.repository.UserRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

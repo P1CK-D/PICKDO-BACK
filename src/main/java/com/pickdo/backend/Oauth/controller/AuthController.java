@@ -1,4 +1,4 @@
-package com.pickdo.backend.controller;
+package com.pickdo.backend.Oauth.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
