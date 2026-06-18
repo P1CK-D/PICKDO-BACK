@@ -1,4 +1,4 @@
-package com.pickdo.backend.health;
+package com.pickdo.backend.health.presentation;
 
 import java.time.Instant;
 import java.util.Map;

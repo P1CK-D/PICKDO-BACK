@@ -1,4 +1,4 @@
-package com.pickdo.backend.quote.dto;
+package com.pickdo.backend.quote.presentation.dto;
 
 public record TodayQuoteResponse(
         Integer quoteId,

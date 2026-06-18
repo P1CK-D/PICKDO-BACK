@@ -1,4 +1,4 @@
-package com.pickdo.backend.quote.repository;
+package com.pickdo.backend.quote.infrastructure;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

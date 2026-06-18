@@ -1,4 +1,4 @@
-package com.pickdo.backend.Oauth.controller;
+package com.pickdo.backend.auth.presentation;
 
 import com.pickdo.backend.global.response.ResponseEnvelope;
 import lombok.RequiredArgsConstructor;
