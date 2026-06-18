@@ -19,7 +19,7 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 
     private final JwtUtil jwtUtil;
 
-    @Value("${app.frontend-url:exp://localhost:8081/--/main}")
+    @Value("${app.frontend-url:exp://10.129.57.186:8081/--/auth/callback}")
     private String frontendUrl;
 
     @Override
