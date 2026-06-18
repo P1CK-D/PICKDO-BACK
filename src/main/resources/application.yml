@@ -2,7 +2,7 @@ spring:
   application:
     name: pickdo
   datasource:
-    url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}?sslmode=require
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:pickdo}?sslmode=${DB_SSL_MODE:disable}
     username: ${DB_USERNAME:pickdo}
     password: ${DB_PASSWORD:pickdo}
     driver-class-name: org.postgresql.Driver
@@ -35,6 +35,5 @@ management:
 
 jwt:
   secret: ${JWT_SECRET:c7f2a91d8e4b6c3f5a2d9e1b7c4f8a6d3e9b1f5c7a2d4e6f8b3c1a9d5e7f2c4}
-
 app:
   frontend-url: ${FRONTEND_URL:exp://localhost:8081/--/main}
