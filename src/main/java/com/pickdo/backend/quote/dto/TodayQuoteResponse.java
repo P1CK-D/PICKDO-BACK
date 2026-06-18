@@ -1,7 +1,7 @@
 package com.pickdo.backend.quote.dto;
 
 public record TodayQuoteResponse(
-        Integer id,
+        Integer quoteId,
         String content,
         String author
 ) {
