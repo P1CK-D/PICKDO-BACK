@@ -29,10 +29,10 @@ public class Quote {
     @Column(length = 100)
     private String author;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "boolean default true")
     private Boolean isActive = true;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "timestamp default current_timestamp")
     private LocalDateTime createdAt;
 
     private Quote(String content, String author) {
