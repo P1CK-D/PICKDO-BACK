@@ -11,7 +11,7 @@ import com.pickdo.backend.quote.service.QuoteService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api/quotes")
+@RequestMapping("/api/v1/quotes")
 @RequiredArgsConstructor
 public class QuoteController {
 

@@ -20,7 +20,7 @@ class QuoteServiceTest {
     void getTodayQuote() {
         TodayQuoteResponse response = quoteService.getTodayQuote();
 
-        assertThat(response.id()).isNotNull();
+        assertThat(response.quoteId()).isNotNull();
         assertThat(response.content()).isNotBlank();
         assertThat(response.author()).isNotBlank();
     }
