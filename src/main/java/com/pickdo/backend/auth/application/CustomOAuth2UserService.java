@@ -1,7 +1,7 @@
-package com.pickdo.backend.Oauth.security;
+package com.pickdo.backend.auth.application;
 
-import com.pickdo.backend.Oauth.entity.User;
-import com.pickdo.backend.Oauth.repository.UserRepository;
+import com.pickdo.backend.user.domain.User;
+import com.pickdo.backend.user.infrastructure.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;

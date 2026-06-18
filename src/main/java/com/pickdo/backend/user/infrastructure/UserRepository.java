@@ -1,6 +1,6 @@
-package com.pickdo.backend.Oauth.repository;
+package com.pickdo.backend.user.infrastructure;
 
-import com.pickdo.backend.Oauth.entity.User;
+import com.pickdo.backend.user.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

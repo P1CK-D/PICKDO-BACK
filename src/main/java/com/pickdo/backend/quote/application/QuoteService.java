@@ -1,4 +1,4 @@
-package com.pickdo.backend.quote.service;
+package com.pickdo.backend.quote.application;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.pickdo.backend.quote.domain.Quote;
-import com.pickdo.backend.quote.dto.TodayQuoteResponse;
-import com.pickdo.backend.quote.repository.QuoteRepository;
+import com.pickdo.backend.quote.infrastructure.QuoteRepository;
+import com.pickdo.backend.quote.presentation.dto.TodayQuoteResponse;
 
 import lombok.RequiredArgsConstructor;
 
