@@ -1,4 +1,4 @@
-package com.pickdo.backend.Oauth.security;
+package com.pickdo.backend.global.security;
 
 import com.pickdo.backend.global.util.CookieUtils;
 import org.springframework.util.StringUtils;
