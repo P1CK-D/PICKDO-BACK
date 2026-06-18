@@ -5,10 +5,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
 
 @Getter
 @Entity
@@ -26,6 +29,12 @@ public class Quote {
     @Column(length = 100)
     private String author;
 
+    @Column(nullable = false)
+    private Boolean isActive = true;
+
+    @Column(nullable = false)
+    private LocalDateTime createdAt;
+
     private Quote(String content, String author) {
         this.content = content;
         this.author = author;
@@ -33,5 +42,10 @@ public class Quote {
 
     public static Quote create(String content, String author) {
         return new Quote(content, author);
+    }
+
+    @PrePersist
+    void prePersist() {
+        this.createdAt = LocalDateTime.now();
     }
 }
