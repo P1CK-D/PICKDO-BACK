@@ -1,5 +1,6 @@
-package com.pickdo.backend.Oauth.security;
+package com.pickdo.backend.global.security;
 
+import com.pickdo.backend.auth.application.CustomOAuth2UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

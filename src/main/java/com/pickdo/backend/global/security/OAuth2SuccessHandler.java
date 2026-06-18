@@ -1,4 +1,4 @@
-package com.pickdo.backend.Oauth.security;
+package com.pickdo.backend.global.security;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

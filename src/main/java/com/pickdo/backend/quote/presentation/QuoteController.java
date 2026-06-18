@@ -1,12 +1,12 @@
-package com.pickdo.backend.quote.controller;
+package com.pickdo.backend.quote.presentation;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pickdo.backend.global.response.ResponseEnvelope;
-import com.pickdo.backend.quote.dto.TodayQuoteResponse;
-import com.pickdo.backend.quote.service.QuoteService;
+import com.pickdo.backend.quote.application.QuoteService;
+import com.pickdo.backend.quote.presentation.dto.TodayQuoteResponse;
 
 import lombok.RequiredArgsConstructor;
 

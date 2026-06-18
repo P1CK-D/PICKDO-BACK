@@ -1,4 +1,4 @@
-package com.pickdo.backend.Oauth.entity;
+package com.pickdo.backend.user.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

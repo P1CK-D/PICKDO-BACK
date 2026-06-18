@@ -1,4 +1,4 @@
-package com.pickdo.backend.quote.config;
+package com.pickdo.backend.quote.infrastructure;
 
 import java.util.List;
 
@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.pickdo.backend.quote.domain.Quote;
-import com.pickdo.backend.quote.repository.QuoteRepository;
 
 @Configuration
 public class QuoteSeedConfig {
