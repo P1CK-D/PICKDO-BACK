@@ -37,4 +37,4 @@ management:
 jwt:
   secret: ${JWT_SECRET}
 app:
-  frontend-url: ${FRONTEND_URL:exp://10.129.57.186:8081/--/auth/callback}
+  frontend-url: ${FRONTEND_URL:pickdo://auth/callback}
