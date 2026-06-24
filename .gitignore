@@ -28,7 +28,8 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 
-echo "src/main/resources/application.yml" >> .gitignore
+src/main/resources/application.yml
+src/main/resources/application-*.yml
 
 ### NetBeans ###
 /nbproject/private/
