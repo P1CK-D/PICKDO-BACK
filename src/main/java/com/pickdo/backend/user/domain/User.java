@@ -1,7 +1,7 @@
 package com.pickdo.backend.user.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -10,8 +10,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "users")
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class User {
 
     @Id
@@ -21,17 +20,9 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(nullable = false, unique = true)
-    private String googleId;
-
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String nickname;
-
-    @Column(nullable = false)
-    private Integer level = 1;
-
-    @Column(nullable = false)
-    private Integer currentExp = 0;
+    private Role role = Role.ROLE_USER;
 
     @Column(nullable = false)
     private LocalDateTime createdAt;
@@ -39,18 +30,18 @@ public class User {
     @Column(nullable = false)
     private LocalDateTime updatedAt;
 
-    public User(String email, String googleId, String nickname) {
+    private LocalDateTime deletedAt;
+
+    public User(String email) {
         this.email = email;
-        this.googleId = googleId;
-        this.nickname = nickname;
     }
 
-    public void linkGoogleId(String googleId) {
-        this.googleId = googleId;
+    public void delete() {
+        this.deletedAt = LocalDateTime.now();
     }
 
-    public void updateNickname(String nickname) {
-        this.nickname = nickname;
+    public boolean isDeleted() {
+        return deletedAt != null;
     }
 
     @PrePersist

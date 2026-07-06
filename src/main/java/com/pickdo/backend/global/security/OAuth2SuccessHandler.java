@@ -1,5 +1,9 @@
 package com.pickdo.backend.global.security;
+import com.pickdo.backend.auth.application.AuthService;
+import com.pickdo.backend.auth.domain.RefreshToken;
 import com.pickdo.backend.global.util.CookieUtils;
+import com.pickdo.backend.user.domain.User;
+import com.pickdo.backend.user.infrastructure.UserRepository;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -18,6 +22,8 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
     private final JwtUtil jwtUtil;
+    private final AuthService authService;
+    private final UserRepository userRepository;
     private final HttpCookieOAuth2AuthorizationRequestRepository cookieAuthorizationRequestRepository;
 
     @Value("${app.frontend-url:exp://10.129.57.186:8081/--/auth/callback}")
@@ -29,19 +35,30 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
                                         Authentication authentication) throws IOException {
         OAuth2User oAuth2User = (OAuth2User) authentication.getPrincipal();
         String email = oAuth2User.getAttribute("email");
-        String token = jwtUtil.generateToken(email);
+
+        User user = userRepository.findByEmail(email).orElse(null);
+        if (user == null) {
+            log.error("OAuth2 로그인 성공 후 User를 찾을 수 없음: {}", email);
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            return;
+        }
+
+        String accessToken = jwtUtil.generateAccessToken(email);
+        RefreshToken refreshToken = authService.createRefreshToken(user);
 
         String targetUrl = resolveTargetUrl(request);
 
         log.info("=== OAuth2 로그인 성공 ===");
         log.info("email: {}", email);
-        log.info("token: {}", token);
+        log.info("accessToken: {}", accessToken);
         log.info("targetUrl: {}", targetUrl);
 
         clearAuthenticationAttributes(request, response);
 
         String separator = targetUrl.contains("?") ? "&" : "?";
-        String finalUrl = targetUrl + separator + "token=" + token;
+        String finalUrl = targetUrl + separator
+                + "token=" + accessToken
+                + "&refreshToken=" + refreshToken.getToken();
 
         log.info("finalUrl (redirect): {}", finalUrl);
 
@@ -58,7 +75,7 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
             log.info("쿠키에서 redirect_uri 찾음: {}", cookie.get().getValue());
             return cookie.get().getValue();
         } else {
-            log.warn("쿠키에 redirect_uri 없음 → 기본 frontendUrl 사용: {}", frontendUrl);
+            log.warn("쿠키에 redirect_uri 없음 -> 기본 frontendUrl 사용: {}", frontendUrl);
             return frontendUrl;
         }
     }

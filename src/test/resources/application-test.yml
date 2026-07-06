@@ -8,3 +8,6 @@ spring:
     hibernate:
       ddl-auto: create-drop
     open-in-view: false
+
+jwt:
+  secret: dGVzdC1zZWNyZXQta2V5LWZvci1waWNrZG8tYmFja2VuZC10ZXN0

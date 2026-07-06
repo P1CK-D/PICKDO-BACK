@@ -38,8 +38,10 @@ public class SecurityConfig {
                                 "/login/**",
                                 "/api/health",
                                 "/actuator/health",
-                                "/api/v1/quotes/today"
+                                "/api/v1/quotes/today",
+                                "/api/v1/auth/refresh"
                         ).permitAll()
+                        .requestMatchers("/api/v1/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .oauth2Login(oauth2 -> oauth2
