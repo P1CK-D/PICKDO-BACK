@@ -22,7 +22,7 @@ jobs:
       SPRING_PROFILES_ACTIVE: test
       GOOGLE_CLIENT_ID: ci-google-client-id
       GOOGLE_CLIENT_SECRET: ci-google-client-secret
-      JWT_SECRET: ci-jwt-secret-for-github-actions-test-environment
+      JWT_SECRET: dGVzdC1zZWNyZXQta2V5LWZvci1waWNrZG8tYmFja2VuZC10ZXN0
 
     steps:
       - name: Checkout
